@@ -13,10 +13,21 @@
     "typescript/no-explicit-any": "error",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/filename-case": [
-      "warn",
+      "error",
       {
-        "case": "kebabCase, pascalCase, camelCase",
-        "ignore": "src/server/db/migrations/**, node_modules, .git"
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true,
+          "snake_case": true,
+          "kebab-case": true
+        }
+      },
+      {
+        "ignore": [
+          "node_modules",
+          "src/server/db/migrations/**",
+          "src/components/_ui/**"
+        ]
       }
     ],
     "import/order": [
