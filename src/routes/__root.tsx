@@ -36,13 +36,13 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TS-BG-Remover',
+        title: 'TanStack Template',
       },
       {
-        description: 'A background remover app',
+        description: 'A template for TanStack with authentication and AI Text chat',
       },
       {
-        keywords: 'background, remover, tanstack, ai, typescript,',
+        keywords: 'tanstack, ai, typescript, authentication, magic link, tanstack router, tanstack query, tanstack ai',
       },
     ],
     links: [
