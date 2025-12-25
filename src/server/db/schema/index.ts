@@ -6,6 +6,5 @@ export {
   sessionsRelations,
   users,
   usersRelations,
-  verifications
+  verifications,
 } from './auth.schema';
-

@@ -27,7 +27,7 @@ const setStoredThemeMode = createClientOnlyFn((theme: ThemeMode) => {
   try {
     const parsedTheme = themeModeSchema.parse(theme);
     localStorage.setItem(themeKey, parsedTheme);
-  } catch { }
+  } catch {}
 });
 
 const getSystemTheme = createIsomorphicFn()

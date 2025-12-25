@@ -182,10 +182,11 @@ function OnboardingPage() {
                   <button
                     key={interest}
                     onClick={() => toggleInterest(interest)}
-                    className={`rounded-lg border-2 p-3 transition-all ${formData.interests.includes(interest)
+                    className={`rounded-lg border-2 p-3 transition-all ${
+                      formData.interests.includes(interest)
                         ? 'border-primary bg-primary/10 text-primary'
                         : 'border-border hover:border-primary/50'
-                      }`}
+                    }`}
                   >
                     <div className='flex items-center justify-between'>
                       <span className='font-medium'>{interest}</span>

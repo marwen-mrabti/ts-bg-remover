@@ -1,8 +1,12 @@
 import { authMiddleware } from '@/middleware/auth-middleware';
-import { chat, createChatOptions, maxIterations, toServerSentEventsStream } from '@tanstack/ai';
+import {
+  chat,
+  createChatOptions,
+  maxIterations,
+  toServerSentEventsStream,
+} from '@tanstack/ai';
 import { geminiText } from '@tanstack/ai-gemini';
 import { createFileRoute } from '@tanstack/react-router';
-
 
 const SYSTEM_PROMPT = `
 You are a helpful assistant that can help the user.
@@ -44,7 +48,7 @@ export const Route = createFileRoute('/api/chat/')({
                 ...todoAgent,
                 conversationId,
                 messages,
-                abortController
+                abortController,
               });
 
               const readableStream = toServerSentEventsStream(
