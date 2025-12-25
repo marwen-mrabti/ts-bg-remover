@@ -36,13 +36,13 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TS-BG-Remover',
+        title: 'BG Remover',
       },
       {
-        description: 'A background remover app',
+        description: 'Remove background from images using AI',
       },
       {
-        keywords: 'background, remover, tanstack, ai, typescript,',
+        keywords: 'tanstack, ai,better-auth, typescript,',
       },
     ],
     links: [
