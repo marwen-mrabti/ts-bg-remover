@@ -62,10 +62,7 @@ export default function NotFound() {
               <Link to='/' className='text-primary hover:underline'>
                 Home
               </Link>
-              <span className='text-muted-foreground'>•</span>
-              <Link to='/todos' className='text-primary hover:underline'>
-                Todos
-              </Link>
+
               <span className='text-muted-foreground'>•</span>
               <Link to='/login' className='text-primary hover:underline'>
                 Login

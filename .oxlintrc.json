@@ -11,8 +11,19 @@
     "unicorn/filename-case": [
       "error",
       {
-        "case": "kebabCase, pascalCase, camelCase",
-        "ignore": ["src/server/db/migrations/**"]
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true,
+          "snake_case": true,
+          "kebab-case": true
+        }
+      },
+      {
+        "ignore": [
+          "node_modules",
+          "src/server/db/migrations/**",
+          "src/components/_ui/**"
+        ]
       }
     ],
     "import/order": [
