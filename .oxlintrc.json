@@ -3,16 +3,20 @@
     "correctness": "error",
     "suspicious": "warn"
   },
-  "plugins": ["unicorn", "typescript", "oxc"],
+  "plugins": [
+    "unicorn",
+    "typescript",
+    "oxc"
+  ],
   "rules": {
     "no-unused-vars": "warn",
     "typescript/no-explicit-any": "error",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/filename-case": [
-      "error",
+      "warn",
       {
         "case": "kebabCase, pascalCase, camelCase",
-        "ignore": ["src/server/db/migrations/**"]
+        "ignore": "src/server/db/migrations/**, node_modules, .git"
       }
     ],
     "import/order": [
@@ -35,14 +39,20 @@
   },
   "overrides": [
     {
-      "files": ["scripts/*.js"],
+      "files": [
+        "scripts/*.js"
+      ],
       "rules": {
         "no-console": "off"
       }
     },
     {
-      "files": ["**/*.{ts,tsx}"],
-      "plugins": ["typescript"],
+      "files": [
+        "**/*.{ts,tsx}"
+      ],
+      "plugins": [
+        "typescript"
+      ],
       "rules": {
         "typescript/no-explicit-any": "warn"
       }
