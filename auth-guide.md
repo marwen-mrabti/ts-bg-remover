@@ -385,7 +385,7 @@ export const signInWithMagicLink = createServerFn({ method: 'POST' })
       body: {
         email: data.email,
         name: data.name,
-        callbackURL: '/todos',
+        callbackURL: '/',
         newUserCallbackURL: '/onboarding',
         errorCallbackURL: '/error',
       },
@@ -677,7 +677,7 @@ import { authClient } from '@/lib/auth-client';
 const handleGitHubSignIn = async () => {
   await authClient.signIn.social({
     provider: 'github',
-    callbackURL: '/todos',
+    callbackURL: '/',
     fetchOptions: {
       onError: (ctx) => {
         toast.error(ctx.error.message);
