@@ -49,7 +49,9 @@ export default function Header() {
             />
           </Link>
         </div>
-        <nav className='hidden items-center gap-1 md:flex'></nav>
+        <nav className='hidden items-center gap-1 md:flex'>
+
+        </nav>
 
         <div className='flex items-center gap-2'>
           {!user ? (
