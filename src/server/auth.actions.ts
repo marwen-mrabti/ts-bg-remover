@@ -34,7 +34,7 @@ export const signInWithMagicLink = createServerFn({ method: 'POST' })
         body: {
           email: data.email,
           name: data.name,
-          callbackURL: '/todos',
+          callbackURL: '/',
           newUserCallbackURL: '/onboarding',
           errorCallbackURL: '/error',
         },

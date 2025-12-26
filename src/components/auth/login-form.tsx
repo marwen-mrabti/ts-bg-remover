@@ -70,7 +70,7 @@ export function LoginForm({
     try {
       await authClient.signIn.social({
         provider,
-        callbackURL: '/todos',
+        callbackURL: '/',
         errorCallbackURL: '/error',
         newUserCallbackURL: '/onboarding',
         fetchOptions: {
