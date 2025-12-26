@@ -1,5 +1,5 @@
 {
-  "name": "ts-bg-remover",
+  "name": "bg_remover",
   "private": true,
   "type": "module",
   "scripts": {

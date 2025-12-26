@@ -50,7 +50,11 @@ export default function Header() {
           </Link>
         </div>
         <nav className='hidden items-center gap-1 md:flex'>
-
+          {user && (
+            <Button variant='ghost' render={<Link to='/remove-bg' />} nativeButton={false}>
+              Remove Background
+            </Button>
+          )}
         </nav>
 
         <div className='flex items-center gap-2'>

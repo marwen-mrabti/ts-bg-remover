@@ -17,6 +17,7 @@ import { Route as AuthLoginRouteImport } from './routes/_auth/login'
 import { Route as AuthErrorRouteImport } from './routes/_auth/error'
 import { Route as AuthCheckEmailRouteImport } from './routes/_auth/check-email'
 import { Route as ApiChatIndexRouteImport } from './routes/api/chat/index'
+import { Route as AuthedRemoveBgIndexRouteImport } from './routes/_authed/remove-bg/index'
 import { Route as AuthedChatIndexRouteImport } from './routes/_authed/chat/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
@@ -58,6 +59,11 @@ const ApiChatIndexRoute = ApiChatIndexRouteImport.update({
   path: '/api/chat/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthedRemoveBgIndexRoute = AuthedRemoveBgIndexRouteImport.update({
+  id: '/remove-bg/',
+  path: '/remove-bg/',
+  getParentRoute: () => AuthedRoute,
+} as any)
 const AuthedChatIndexRoute = AuthedChatIndexRouteImport.update({
   id: '/chat/',
   path: '/chat/',
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof AuthLoginRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/chat': typeof AuthedChatIndexRoute
+  '/remove-bg': typeof AuthedRemoveBgIndexRoute
   '/api/chat': typeof ApiChatIndexRoute
 }
 export interface FileRoutesByTo {
@@ -87,6 +94,7 @@ export interface FileRoutesByTo {
   '/login': typeof AuthLoginRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/chat': typeof AuthedChatIndexRoute
+  '/remove-bg': typeof AuthedRemoveBgIndexRoute
   '/api/chat': typeof ApiChatIndexRoute
 }
 export interface FileRoutesById {
@@ -100,6 +108,7 @@ export interface FileRoutesById {
   '/_auth/login': typeof AuthLoginRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/_authed/chat/': typeof AuthedChatIndexRoute
+  '/_authed/remove-bg/': typeof AuthedRemoveBgIndexRoute
   '/api/chat/': typeof ApiChatIndexRoute
 }
 export interface FileRouteTypes {
@@ -112,6 +121,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/api/auth/$'
     | '/chat'
+    | '/remove-bg'
     | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/api/auth/$'
     | '/chat'
+    | '/remove-bg'
     | '/api/chat'
   id:
     | '__root__'
@@ -134,6 +145,7 @@ export interface FileRouteTypes {
     | '/_auth/login'
     | '/api/auth/$'
     | '/_authed/chat/'
+    | '/_authed/remove-bg/'
     | '/api/chat/'
   fileRoutesById: FileRoutesById
 }
@@ -204,6 +216,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authed/remove-bg/': {
+      id: '/_authed/remove-bg/'
+      path: '/remove-bg'
+      fullPath: '/remove-bg'
+      preLoaderRoute: typeof AuthedRemoveBgIndexRouteImport
+      parentRoute: typeof AuthedRoute
+    }
     '/_authed/chat/': {
       id: '/_authed/chat/'
       path: '/chat'
@@ -237,10 +256,12 @@ const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
 
 interface AuthedRouteChildren {
   AuthedChatIndexRoute: typeof AuthedChatIndexRoute
+  AuthedRemoveBgIndexRoute: typeof AuthedRemoveBgIndexRoute
 }
 
 const AuthedRouteChildren: AuthedRouteChildren = {
   AuthedChatIndexRoute: AuthedChatIndexRoute,
+  AuthedRemoveBgIndexRoute: AuthedRemoveBgIndexRoute,
 }
 
 const AuthedRouteWithChildren =

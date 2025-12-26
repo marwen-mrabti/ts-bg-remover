@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from '@/components/_ui/card';
 import { ResendMagicLinkButton } from '@/components/auth/resend-magic-link';
+import { seo } from '@/lib/seo';
 import type { MagicLinkCredentials } from '@/lib/utils';
 import { getMagicLinkData } from '@/server/auth.actions';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
@@ -30,6 +31,13 @@ type ErrorDetails = {
 
 export const Route = createFileRoute('/_auth/error')({
   validateSearch: zodValidator(searchSchema),
+  head: () => {
+    return {
+      meta: seo({
+        title: 'Sign In Error - BG_Remover',
+      }),
+    };
+  },
 
   loader: async () => {
     const cookie = await getMagicLinkData();

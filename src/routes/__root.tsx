@@ -36,7 +36,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'BG Remover',
+        title: 'BG_Remover',
       },
       {
         description: 'Remove background from images using AI',

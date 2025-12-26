@@ -33,6 +33,7 @@ const envSchema = z.object({
   //AI Configuration
   OPENAI_API_KEY: z.string().min(1, 'OPENAI_API_KEY is required'),
   GEMINI_API_KEY: z.string().min(1, 'GEMINI_API_KEY is required'),
+  BRIA_API_KEY: z.string().min(1, 'BRIA_API_KEY is required'),
 
   // Node Environment
   NODE_ENV: z

@@ -10,11 +10,19 @@ import { Input } from '@/components/_ui/input';
 import { Label } from '@/components/_ui/label';
 import { Progress } from '@/components/_ui/progress';
 import { Textarea } from '@/components/_ui/textarea';
+import { seo } from '@/lib/seo';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 
 export const Route = createFileRoute('/onboarding')({
+  head: () => {
+    return {
+      meta: seo({
+        title: 'Onboarding - BG_Remover',
+      }),
+    };
+  },
   component: OnboardingPage,
 });
 

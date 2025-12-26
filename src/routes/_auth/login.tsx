@@ -1,7 +1,17 @@
 import { LoginForm } from '@/components/auth/login-form';
+import { seo } from '@/lib/seo';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/_auth/login')({
+
+
+  head: () => {
+    return {
+      meta: seo({
+        title: 'Login - BG_Remover',
+      }),
+    };
+  },
   component: RouteComponent,
 });
 

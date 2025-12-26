@@ -13,9 +13,17 @@ import { ArrowRight, CheckCircle, Mail } from 'lucide-react';
 import { ResendMagicLinkButton } from '@/components/auth/resend-magic-link';
 import { magicLinkLoginSchema } from '@/lib/utils';
 import { zodValidator } from '@tanstack/zod-adapter';
+import { seo } from '@/lib/seo';
 
 export const Route = createFileRoute('/_auth/check-email')({
   validateSearch: zodValidator(magicLinkLoginSchema),
+  head: () => {
+    return {
+      meta: seo({
+        title: 'Check Email - BG_Remover',
+      }),
+    };
+  },
   component: RouteComponent,
 });
 
