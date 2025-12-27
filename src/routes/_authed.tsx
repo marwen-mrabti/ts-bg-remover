@@ -1,8 +1,9 @@
+import { getCurrentUser } from '@/server/auth.queries';
 import { createFileRoute, redirect } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/_authed')({
-  beforeLoad: async ({ context, location }) => {
-    const user = context.user;
+  beforeLoad: async ({ location }) => {
+    const user = await getCurrentUser()
     if (!user) {
       throw redirect({
         to: '/login',

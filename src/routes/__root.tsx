@@ -17,9 +17,7 @@ import ErrorComponent from '@/components/app/error-component';
 import { Toaster } from '@/components/_ui/sonner';
 import NotFound from '@/components/app/not-found-component';
 import { ThemeProvider } from '@/components/app/theme-provider';
-import { COOLDOWN_KEY } from '@/hooks/useMagicLink';
-import { removeDataFromLocalStorage } from '@/lib/helpers';
-import { getCurrentUser } from '@/server/auth.queries';
+
 
 interface MyRouterContext {
   queryClient: QueryClient;
@@ -53,15 +51,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
     ],
   }),
 
-  beforeLoad: async () => {
-    const user = await getCurrentUser();
-    if (user) {
-      removeDataFromLocalStorage([COOLDOWN_KEY]);
-    }
-    return {
-      user,
-    };
-  },
+
 
   shellComponent: RootDocument,
   notFoundComponent: NotFound,

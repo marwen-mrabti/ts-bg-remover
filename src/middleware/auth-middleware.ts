@@ -24,20 +24,22 @@ export const authMiddleware = createMiddleware({ type: 'request' }).server(
 );
 
 // For server functions
-export const serverFnAuthMiddleware = createMiddleware({
+export const requireAuth = createMiddleware({
   type: 'function',
 }).server(async ({ next }) => {
-  const headers = getRequestHeaders();
+
+  const headers = await getRequestHeaders();
   const session = await auth.api.getSession({ headers });
 
   if (!session?.session || !session.user) {
     throw new Error('Unauthorized');
   }
 
-  return next({
-    sendContext: {
+  return await next({
+    context: {
       session: session.session,
       user: session.user,
     },
   });
+
 });

@@ -8,3 +8,8 @@ export {
   usersRelations,
   verifications,
 } from './auth.schema';
+
+export {
+  bgRemoverTrials,
+  bgRemoverTrialsRelations,
+} from './bg-trial-usage.schema';

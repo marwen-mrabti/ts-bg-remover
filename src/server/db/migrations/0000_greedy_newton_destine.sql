@@ -53,10 +53,18 @@ CREATE TABLE "verifications" (
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
+CREATE TABLE "bg_remover_trials" (
+	"id" text PRIMARY KEY NOT NULL,
+	"user_id" text NOT NULL,
+	"used_at" timestamp DEFAULT now() NOT NULL
+);
+--> statement-breakpoint
 ALTER TABLE "accounts" ADD CONSTRAINT "accounts_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "sessions" ADD CONSTRAINT "sessions_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "bg_remover_trials" ADD CONSTRAINT "bg_remover_trials_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 CREATE INDEX "account_userId_idx" ON "accounts" USING btree ("user_id");--> statement-breakpoint
 CREATE INDEX "session_userId_idx" ON "sessions" USING btree ("user_id");--> statement-breakpoint
 CREATE UNIQUE INDEX "user_id_idx" ON "users" USING btree ("id");--> statement-breakpoint
 CREATE INDEX "user_email_idx" ON "users" USING btree ("email");--> statement-breakpoint
-CREATE INDEX "verification_identifier_idx" ON "verifications" USING btree ("identifier");
+CREATE INDEX "verification_identifier_idx" ON "verifications" USING btree ("identifier");--> statement-breakpoint
+CREATE UNIQUE INDEX "bg_remover_trials_user_id_idx" ON "bg_remover_trials" USING btree ("user_id");

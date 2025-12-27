@@ -11,12 +11,22 @@ const config = defineConfig({
     port: 3000,
   },
   ssr: {
-    external: ['postgres'],
+    external: [
+      'pg',
+      'pg-native',
+      'postgres',
+    ],
     noExternal: ['drizzle-orm'],
   },
 
   optimizeDeps: {
-    exclude: ['postgres'],
+    exclude: [
+      'pg',
+      'pg-native',
+      'pg-types',
+      'postgres-bytea',
+      'postgres',
+    ],
   },
 
   plugins: [
